@@ -1,0 +1,396 @@
+---
+title: "Estatística Básica (FL03017-EB)"
+subtitle: "Cronograma da disciplina"
+author: "Prof. Dr. Deivison Venicio Souza"
+institute: "Universidade Federal do Pará (UFPA)"
+date: 
+encoding: "UTF-8"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default 
+      - assets/sydney-fonts.css
+      - assets/slide-title/sydney-title.css
+    self_contained: false
+    seal: false
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: googlecode
+      highlightLines: true
+      countIncrementalSlides: false
+      highlightLanguage: ["r", "css", "yaml"]
+      ratio: '16:9'
+      navigation:
+        scroll: false
+---
+class: title-slide, center, middle
+background-image: url(fig/slide-title/ufpa2.png), url(fig/slide-title/forest.png), url(fig/slide-title/img3.png)
+background-position: 84% 90%, 95% 90%
+background-size: 220px, 90px, cover
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  fig.showtext = TRUE,
+  fig.align = "center", 
+  cache = FALSE,
+  error = FALSE,
+  message = FALSE, 
+  warning = FALSE, 
+  collapse = TRUE ,
+  dpi = 600)
+```
+
+```{r xaringan-logo, echo=FALSE}
+library(xaringanExtra)
+use_logo(
+  image_url = "fig/slide-title/ufpa.png",
+  position = css_position(top = ".8em", right = "-.5em"),
+  width = "140px",
+  height = "140px"
+)
+```
+
+```{r icon, echo=FALSE}
+#remotes::install_github("mitchelloharawild/icons")
+#library(icons)
+#download_fontawesome()
+#download_simple_icons()
+```
+
+```{r, echo=FALSE}
+#remotes::install_github("jhelvy/xaringanBuilder")
+#library(xaringanBuilder)
+#build_pdf("Aula0-Cronograma.Rmd")
+#pagedown::chrome_print("Slides/Aula0-Cronograma.html",output="test.pdf")
+```
+
+<!-- title-slide -->
+# Estatística Básica <br> (FL03017-EB)
+<br><br>
+## `r anicon::faa("pagelines", animate="horizontal", colour="green")` Cronograma da disciplina `r anicon::faa("pagelines", animate="horizontal", colour="green")`
+
+#### **Prof. Dr. Deivison Venicio Souza**
+##### Universidade Federal do Pará (UFPA) 
+##### Faculdade de Engenharia Florestal
+##### E-mail: deivisonvs@ufpa.br
+<br>
+##### 1ª versão: 30/julho/2021 <br> (Atualizado em: `r format(Sys.Date(),"%d/%B/%Y")`) <br> Altamira, Pará
+
+---
+layout: true
+<div class="my-header"></div>
+<div class="my-footer"><span>Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&emsp;&emsp;&emsp;&emsp;&emsp;Estatística Básica (FL03017-EB) - Cronograma da disciplina</div>
+
+---
+
+## 👋 Olá, sejam bem vindos!
+
+### **Sobre o facilitador**
+.pull-left[
+
+1. .green[Graduação (Titulação: ano 2008)]
+    - Universidade Federal Rural da Amazônia (UFRA); e
+    - Título: Bacharel em Engenharia Florestal.
+
+2. .green[Mestrado (Titulação: ano 2011)]
+    - Universidade Federal Rural da Amazônia (UFRA);
+    - Programa de Pós-graduação em Ciências Florestais (PPGCF); e
+    - Área de Concentração: Manejo de ecossistemas florestais.
+]
+
+.pull-right[
+
+3. .green[Doutorado (Titulação: ano 2020)]
+    - Universidade Federal do Paraná (UFPR);
+    - Programa de Pós-graduação em Engenharia Florestal (PPGEF); e
+    - Área de Concentração: Manejo Florestal.
+    
+4. .green[Especialização (Defesa: ano 2019)]
+    - Universidade Federal do Paraná (UFPR);
+    - Área: Big Data e Data Science
+]
+
+---
+
+## 👋 Olá, sejam bem vindos!
+
+.pull-left[
+### **Interesses atuais**
+1. .green[Linguagem de programação]
+    - R
+    - Python
+
+2. .green[Modelagem preditiva aplicada à ciência florestal]
+    - Aprendizado de máquina
+    
+3. .green[Visão computacional]
+    - reconhecimento de imagens
+    
+4. .green[Criação de Dashboard - Shiny]
+]
+
+.pull-right[
+### **Websites e contatos**
+
+`r icons::simple_icons("github")` GitHub: https://github.com/DeivisonSouza
+
+<span class="iconify" data-icon="fa-brands:orcid" data-inline="false"></span>
+
+
+<div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0002-2975-0927" href="https://orcid.org/0000-0002-2975-0927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_128x128.png" style="width:1.5em;margin-right:1em;" alt="ORCID iD icon">https://orcid.org/0000-0002-2975-0927</a></div>
+
+```{r, echo=FALSE, out.width='20%', fig.align='center', fig.cap=''}
+knitr::include_graphics('fig/slide-title/ORCID.png')
+```
+
+Email: deivisonvs@ufpa.br
+]
+
+<!-- Slide 2 -->
+---
+## Cronograma .black[.font80[(**Horário: 08h30min - 12h30min**)]]
+
+```{r echo=FALSE, eval=TRUE, warning=FALSE, dpi=600, fig.width = 35, fig.height = 17}
+library(calendR)
+library(ggplot2)
+
+p <- calendR::calendR(year = 2022,
+        month = 8,
+        start = "M",
+        title = "Agosto (Ano 2022)",
+        title.size = 50, 
+        subtitle.size = 20, 
+        title.col = 2,  
+        subtitle = "",   
+        subtitle.col = 3,
+        weeknames.size = 15,
+        special.days = "weekend",
+        legend.pos = "bottom",
+        special.col = rgb(1, 0, 0, 0.1),
+        col = "black",                  
+        lwd = 1,
+        lty = 1,
+        font.family = "mono",       
+        font.style = "bold",
+        weeknames.col = "gray30",
+        months.col = "gray30",
+        days.col = 4, 
+        day.size = 18,
+        bg.img = "",
+        text = c(
+          "Introdução à\n Estatística",
+          "Distribuição\n de frequências", 
+          "Medidas de\n tendência\n central",
+          "Medidas de\n dispersão",
+          "Medidas de\n forma das\n distribuições",
+          "Introdução\n à linguagem R",
+          "Revisão\n (Avaliação 1)",
+          "Avaliação 1",
+          "Testes de\n comparações\n de médias",
+          "Análise de \n correlação e\n regressão",
+          "Revisão\n (Avaliação 2)",
+          "Avaliação 2"),
+        text.pos = c(1:6, 8:13), 
+        text.size = 12,
+        text.col = 1)
+
+p + theme(legend.key.size = unit(2, 'cm'),
+          legend.text = element_text(size=30))
+
+```
+
+
+<!-- Slide 6 -->
+---
+
+## Ementa da disciplina (FL03017-EB)
+
+.shadow2[
+<br>
+1 - Introdução à estatística básica; 
+
+2 - Distibuição de frequências;
+
+3 - Medidas de tendência central (ou posição); 
+
+4 - Medidas de dispersão (ou variabilidade); 
+
+5 - Medidas de assimetria e curtose;
+
+6 - Testes de comparação de médias;
+
+7 - Análise de correlação linear simples;
+
+8 - Análise de regressão linear simples e múltipla; e
+
+9 - Introdução à linguagem R para análise de dados.
+
+]
+
+<!-- Slide 7 -->
+---
+## Estratégias e Ferramentas de Ensino
+<br>
+
+- **Aula Presencial** (*Sala 3 - FEF*)
+
+Aulas teóricas e práticas presenciais, realização de atividades complementares e avaliações de aprendizado.
+
+--
+<br><br>
+
+- **Plataforma de videoconferência** (*Google Meeting*)
+
+**Palestras**: Videoconferências com profissionais convidados para palestrar sobre temas relacionados à importância da estatística nas ciências florestais.
+
+.red[**Atenção**]`r anicon::faa("exclamation-triangle", colour="red")`: Formação de grupos (Duas perguntas no mínimo)
+
+
+<!-- Slide 8 -->
+---
+## Estratégias e Ferramentas de Ensino
+<br>
+
+- **Sala de aula virtual** (*Google Classroom*)
+
+Comunicação, envio de atividades complementares e de conteúdos digitas.
+
+--
+<br><br>
+
+- **Repositório GitHub**
+
+Repositório com os slides em .html, arquivos .R e .Rmd, figuras, conjunto de dados (e outros). O repositório pode ser acessado em: [FL03017-Estatistica-Basica](https://github.com/DeivisonSouza/FL03017-Estatistica-Basica)
+
+
+<!-- Slide 9 -->
+---
+
+## Estratégias de avaliação da aprendizagem
+
+- **Atividades práticas**
+
+.font90[
+Exercícios com dados reais (quando possível) para aprendizado de cálculo e interpretação de dados.
+<br><br>
+
+Aula prática usando linguagem de programação R.
+]
+
+--
+
+<br>
+
+- **Avaliação teórica**
+
+.font90[
+Avaliações teóricas presenciais.
+]
+
+--
+
+<br>
+
+- **Participação** 
+
+.font90[O nível de participação e interação nas aulas presenciais poderá ser critério para definir uma pontuação extra nas avaliações teóricas.
+]
+
+
+<!-- Slide 9 -->
+---
+
+## Média Final e Conceito
+<br>
+
+\begin{equation*}
+\Large
+MF = \frac{(NA*2)+NPT}{3}
+\end{equation*}
+
+
+**MF** = Média Final
+
+**NA** = Nota das Atividade (Soma das atividades será 10 pts.)
+
+**NP** = Nota das Provas Teóricas (Soma das provas será 10 pts.)
+
+<br>
+
+| Conceito     | Intervalo      |
+|--------------|----------------|
+| Excelente    | 9,0 ≤ MF ≤ 10  |
+| Bom          | 7,0 ≤ MF ≤ 8,9 |
+| Regular      | 5,0 ≤ MF ≤ 6,9 |
+| Insuficiente | 0 ≤ MF ≤ 4,9   |
+
+
+<!-- Slide 10 -->
+---
+## Plano de Ensino
+<br><br>
+
+O plano de ensino da disciplina pode ser acessado em:
+
+[Plano de Ensino (FL03017 - EB)](https://github.com/DeivisonSouza/FL03034-EF/blob/master/Slides/PE/EF-PE.pdf)
+
+
+<!-- Slide 11 -->
+---
+## Reprovação
+<br>
+Conforme o Regimento Geral da UFPA, será considerado reprovado o discente que:
+
+- Obtiver o conceito Insuficiente (INS), isto é, nota inferior a 5 (cinco); (.green[**Aplicável**])
+- Sem Avaliação (SA); ou (.green[**Aplicável**])
+- Não obtiver a frequência mínima de 75% na disciplina, isto é, Sem Frequência (SF). (.green[**Aplicável**])
+
+<!-- Slide 13 -->
+---
+## Bibliografia básica
+
+<br><br>
+FERREIRA, D. F. Estatística básica. 2 ed. rev. Lavras: Ed. UFLA, 2009. 664 p.
+<br><br>
+KAZMIER, L. J. Estatística aplicada à economia e administração. São Paulo: Pearson Makron Books, 1982. (Coleção Schaum)
+<br><br>
+MORETTIN, P. A.; BUSSAB, W. O. Estatística básica. Saraiva Educação SA, 2017.
+
+---
+
+## Morettin e Bussab (2017)
+<br>
+
+.pull-left-4[
+**Livro com códigos em R na internet**
+<br><br>
+
+Morettin, Pedro Alberto; Bussab, Wilton Oliveira. **Estatística básica**. 9 ed., São Paulo: Saraiva, 2017, 554p.
+<br><br>
+
+Dados, códigos R (e outros) podem ser acessados em:
+
+**Link**: <a href="https://www.ime.usp.br/~pam/EstBas.html">Estatística básica</a>
+
+]
+
+.pull-right-4[
+```{r, echo=FALSE, out.width='60%', fig.align='center', fig.cap='', dpi=600}
+knitr::include_graphics('fig/slide-title/Livro-Bussab.jpeg')
+```
+]
+
+
+<!-- Slide 14 -->
+---
+## Bibliografia complementar
+
+<br><br>
+VIEIRA, S. Bioestatística: tópicos avançados. 3 ed. Rio de Janeiro: Elsevier, 2010. 278p.
+<br><br>
+VIEIRA, S. Estatística básica. São Paulo: Cengage Learning, 2012. 176p.
+
+
+
