@@ -49,6 +49,17 @@ Básica** (FL03017-EB) estão detalhados a seguir.
 |:-----------------------------|:------------------------------------------------------------------------------------------|
 | Slides/Aula0-Cronograma.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/Aula0-Cronograma.html> |
 
+# Materias de apoio
+
+-   **Livros**
+
+Filipe J. Zabala. [Estatística
+Básica](http://www.filipezabala.com/enrs/)
+
+Morettin, Pedro Alberto; Bussab, Wilton Oliveira. **Estatística
+básica**. 9 ed., São Paulo: Saraiva, 2017, 554p. [(Acesse os dados e
+códigos em R)](https://rpubs.com/EstatBasica/Introd)
+
 # Facilitador :deciduous_tree:
 
 **Deivison Venicio Souza** possui graduação em :deciduous_tree:
