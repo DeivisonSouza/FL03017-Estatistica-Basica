@@ -1,15 +1,22 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file.. -->
+
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 # Seja bem vindo(a)! :deciduous_tree: :smiley: :grin:
 
-:calendar: **Junho: 13, 16, 17, 20, 23, 24, 27 e 30**
+:calendar: **Abril: 6/04 a 11/04 e 13/04 a 18/04**
 
-:calendar: **Julho: 1, 4, 7 e 8**
+:alarm_clock: **07h30min - 12h50min**
 
-:alarm_clock: **13h30min - 18h50min**
+<div>
+
+<img src="Slides/fig/slide-title/ufpa.png" width="150" align="middle" class="center">
+<img src="Slides/fig/slide-title/LMFTCA.png" width="150" align="middle" class="center">
+
+<div>
 
 <div itemscope="" itemtype="https://schema.org/Person">
 
@@ -21,12 +28,14 @@
 
 **Researchgate**: <https://www.researchgate.net/profile/Deivison-Souza>
 
-**Este repositório está licenciado nos termos da licença MIT..**
+**Siga o Instagram**:
+[@lmftca_ufpa](https://www.instagram.com/lmftca_ufpa/) (Laboratório de
+Manejo Florestal, Tecnologias e Comunidades Amazônicas)
 
-<div>
-<img src="Slides/fig/slide-title/ufpa2.png" width="270" align="middle" class="center">
-<img src="Slides/fig/slide-title/forest.png" width="100" align="middle" class="center">
-<div>
+**Site do LMFTCA**: <https://www.lmftca.com.br/> (Laboratório de Manejo
+Florestal, Tecnologias e Comunidades Amazônicas)
+
+------------------------------------------------------------------------
 
 # Estatística Básica (FL03017-EB)
 
@@ -37,19 +46,19 @@ Venicio Souza** no curso de graduação em **Engenharia Florestal** da
 **Universidade Federal do Pará** (UFPA). O curso será ofertado na
 modalidade Presencial na [Universidade Federal do Pará
 (UFPA)](https://portal.ufpa.br/index.php), e em consonância à [Resolução
-n. 5.550, de 25 de agosto de
-2022](https://sege.ufpa.br/boletim_interno/downloads/resolucoes/consepe/2022/5550%20Resolu%C3%A7%C3%A3o%20Calend%C3%A1rio%20Acad%C3%AAmico%202023.pdf),
+n. 5.986, de 15 de outubro de
+2025](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://sege.ufpa.br/boletim_interno/downloads/resolucoes/consepe/2025/5986%20Aprova%20o%20Calend%C3%A1rio%20Acad%C3%AAmico%20da%20UFPA%20-%202026.pdf),
 que aprovou o Calendário Acadêmico da Universidade Federal do Pará para
-o ano de 2023.
+o ano de 2026.
 
 # Programação da disciplina
 
 A programação, o conteúdo e os slides da disciplina **Estatística
 Básica** (FL03017-EB) estão detalhados a seguir.
 
-| Slide                        | Link                                                                                      |
-|:-----------------------------|:------------------------------------------------------------------------------------------|
-| Slides/Aula0-Cronograma.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/Aula0-Cronograma.html> |
+| Slide | Link |
+|:---|:---|
+| Slides/01-Programacao.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/01-Programacao.html> |
 
 # Materias de apoio
 
@@ -64,32 +73,47 @@ códigos em R)](https://rpubs.com/EstatBasica/Introd)
 
 # Facilitador :deciduous_tree:
 
-**Deivison Venicio Souza** possui graduação em :deciduous_tree:
-**Engenharia Florestal** :deciduous_tree: pela Universidade Federal
-Rural da Amazônia (2008), Mestrado em Ciências Florestais pela
-Universidade Federal Rural da Amazônia (2011) e Doutorado em Engenharia
-Florestal pela Universidade Federal do Paraná (2020). No período de 2009
-a 2011 exerceu o cargo de Analista Ambiental da Secretaria Estadual de
-Meio Ambiente do Pará, na Gerência de Projetos Agrossilvipastoris
-(GEPAF), com atuação direta na etapa de análise técnica, para fins de
-licenciamento ambiental, de Planos de Manejo Florestal Sustentável
-(PMFS), Projetos de Desbastes e Reflorestamento e Supressão Florestal.
-Desde 2011 é professor da Faculdade de Engenharia Florestal da
-Universidade Federal do Pará, Campus Universitário de Altamira, Pará. É
-responsável por ministrar as disciplinas Estatística Básica,
-Dendrometria, Experimentação Florestal e Inventário Florestal,
-integrantes do desenho curricular do Curso de Graduação em Engenharia
-Florestal. Tem experiência na área de Gestão e Manejo dos Recursos
-Florestais, com ênfase em Silvicultura de Florestas Naturais, Inventário
-Florestal e Mensuração Florestal. Atualmente, é docente permanente do
-Programa de Pós-Graduação em Biodiversidade e Conservação (PPGBC) da
-Universidade Federal do Pará (UFPA)/Campus Altamira, responsável pela
-disciplina Estatística Computacional. Seus interesses científicos
-incluem o uso da inteligência artificial e visão computacional na
-conservação da biodiversidade (com ênfase na flora Amazônica explorada
-comercialmente) e emprego de técnicas de aprendizado de máquina na
-modelagem preditiva de variáveis biométricas, com uso das Linguagens R e
-Python. Além disso, tem atuado em projetos sustentáveis com ênfase em
-inventário e manejo florestal de produtos não madeireiros, estruturação
-e fortalecimento de cadeias produtivas da sociobiodiversidade, com
-atuação em comunidades indígenas.
+<div>
+
+<img src="Slides/fig/slide-title/foto.jpg" width="150" align="middle" class="center">
+
+<div>
+
+<br>
+
+<div align="justify">
+
+Graduado em :deciduous_tree:**Engenharia Florestal** (ano 2008) e
+Mestrado em Ciências Florestais (ano 2011) pela Universidade Federal
+Rural da Amazônia (UFRA) e Doutorado em Engenharia Florestal pela
+Universidade Federal do Paraná - UFPR (ano 2020). Também possui
+Especialização em Data Science e Big Data pela UFPR (ano 2019).
+Atualmente, é docente Associado I na Universidade Federal do Pará
+(UFPA), atuando no curso de Graduação em Engenharia Florestal e no
+Programa de Pós-Graduação em Biodiversidade e Conservação (PPGBC). É
+responsável por ministrar as disciplinas de Estatística Básica,
+Dendrometria, Experimentação Florestal e Inventário Florestal no Curso
+de Graduação em Engenharia Florestal da UFPA, e a disciplina de
+Estatística Computacional no PPGBC. Coordena projetos de pesquisas
+orientados ao manejo e conservação da biodiversidade, com ênfase no
+desenvolvimento de tecnologias baseadas em inteligência artificial e
+visão computacional para o reconhecimento automático de espécies da
+flora Amazônica. Também tem contribuído em projetos socioambientais
+junto aos povos originários, em parceria com a Associação Indígena
+Pyjahyry Xipaya - AIPHX, com ênfase na estruturação e fortalecimento de
+cadeias de produtos da sociobiodiversidade e gestão territorial e
+ambiental.
+
+</div>
+
+------------------------------------------------------------------------
+
+**Este repositório está licenciado nos termos da licença MIT.**
+
+</div>
+
+</div>
+
+</div>
+
+</div>
