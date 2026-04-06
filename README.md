@@ -59,6 +59,7 @@ Básica** (FL03017-EB) estão detalhados a seguir.
 | Slide | Link |
 |:---|:---|
 | Slides/01-Programacao.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/01-Programacao.html> |
+| Slides/02-Introducao-Estatistica.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/02-Introducao-Estatistica.html> |
 
 # Materias de apoio
 
