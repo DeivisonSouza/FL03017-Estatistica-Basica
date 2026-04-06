@@ -63,6 +63,7 @@ use_logo(
 
 ```{r, echo=FALSE}
 library(ggplot2)
+library(plotly)
 ```
 
 <!-- title-slide -->
@@ -234,7 +235,7 @@ data <- data.table::fread("data/Cedrela.csv")
 # data %>%
 #   knitr::kable(format= "html")
 
-data %>% 
+data |>
    DT::datatable(editable = 'cell', rownames = FALSE, style = "default",
                  class = "display", width = '350px',
                  caption = 'Dados de Cedrela odorata.',
@@ -278,7 +279,7 @@ table(data$QF)
 ```{r g1, echo=TRUE, eval=FALSE}
 # Criando um BoxPlot Univariado
 
-g1 <- data %>% 
+g1 <- data |> 
   ggplot(aes(x = 1, y = D)) + 
   geom_boxplot() + 
   xlab(NULL) + 
@@ -313,7 +314,7 @@ plotly::ggplotly(g1)
 ```{r g2, echo=TRUE, eval=FALSE}
 # Criando um Hitograma Univariado
 
-g2 <- data %>%
+g2 <- data |>
   ggplot(aes(x = H)) + 
   geom_histogram(bins = 5, fill="#69b3a2", 
                  color="#e9ecef", alpha=0.9) +
