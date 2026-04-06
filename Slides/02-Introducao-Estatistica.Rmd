@@ -36,7 +36,7 @@ background-size: 150px, 150px, cover
 knitr::opts_chunk$set(
   fig.showtext = TRUE,
   fig.align = "center", 
-  cache = TRUE,
+  cache = FALSE,
   error = FALSE,
   message = FALSE, 
   warning = FALSE, 
@@ -63,7 +63,6 @@ use_logo(
 
 ```{r, echo=FALSE}
 library(ggplot2)
-library(plotly)
 ```
 
 <!-- title-slide -->
@@ -122,7 +121,7 @@ Ao final desta aula espera-se que o discente seja capaz de...
 * Compreender terminologias e conceitos básicos;
 * Compreender a diferença ente estatística descritiva e estatística inferêncial;
 * Compreender a diferença ente Amostra e População;
-* Compreender a diferença ente Variável e Parâmetro; e
+* Compreender a diferença ente Parâmetro e Estatística; e
 * Compreender e diferenciar os tipos de variáveis.
 
 ---
@@ -138,9 +137,9 @@ Ao final desta aula espera-se que o discente seja capaz de...
 
 [3 - População e Amostra](#PA)
 
-[4 - Variável e Parâmetro](#VP)
+[4 - Tipos de Variáveis](#TV)
 
-[5 - Tipos de Variáveis](#TV)
+[5 - Parâmetro x Estatística](#VP)
 ]
 
 ---
@@ -268,42 +267,53 @@ table(data$QF)
 ---
 
 ## Terminologias e conceitos básicos
-<br>
 
 .left-column[
-
 ### Como extrair informações descritivas?
 
 * Usar representações gráficas
 
-```{r g1, echo=TRUE, eval=FALSE}
+```{r g1_codigo, echo=TRUE, eval=FALSE}
 # Criando um BoxPlot Univariado
 
-g1 <- data |> 
+g1 <- data |>
   ggplot(aes(x = 1, y = D)) + 
   geom_boxplot() + 
   xlab(NULL) + 
   theme_bw() +
-  theme(axis.text.x = element_blank(),
-        axis.ticks.x = element_blank())
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank()
+  )
 
-plotly::ggplotly(g1)
-
+plotly::ggplotly(g1, width = 400, height = 400)
 ```
-
 ]
+
 
 .right-column[
+<br><br>
 
-```{r ref.label="g1", echo=FALSE, eval=TRUE, collapse=T, fig.width=.8, fig.height=.8, fig.align='center', fig.cap='', dpi=600}
+```{r g1_plot, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+g1 <- data |>
+  ggplot(aes(x = 1, y = D)) + 
+  geom_boxplot() + 
+  xlab(NULL) + 
+  theme_bw() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank()
+  )
+
+plotly::ggplotly(g1, width = 400, height = 400)
 ```
-
 ]
+
+
 
 ---
 
 ## Terminologias e conceitos básicos
-<br>
 
 .left-column[
 
@@ -311,24 +321,38 @@ plotly::ggplotly(g1)
 
 * Usar representações gráficas
 
-```{r g2, echo=TRUE, eval=FALSE}
-# Criando um Hitograma Univariado
+```{r g2_codigo, echo=TRUE, eval=FALSE}
+# Criando um Histograma Univariado
 
 g2 <- data |>
   ggplot(aes(x = H)) + 
-  geom_histogram(bins = 5, fill="#69b3a2", 
-                 color="#e9ecef", alpha=0.9) +
+  geom_histogram(
+    bins = 5,
+    fill = "#69b3a2",
+    color = "#e9ecef",
+    alpha = 0.9
+  ) +
   theme_bw()
 
-plotly::ggplotly(g2)
-
+plotly::ggplotly(g2, width = 400, height = 400)
 ```
 
 ]
 
 .right-column[
+<br><br>
+```{r g2_plot, echo=FALSE, message=FALSE, warning=FALSE}
+g2 <- data |>
+  ggplot(aes(x = H)) + 
+  geom_histogram(
+    bins = 5,
+    fill = "#69b3a2",
+    color = "#e9ecef",
+    alpha = 0.9
+  ) +
+  theme_bw()
 
-```{r ref.label="g2", echo=FALSE, eval=TRUE, collapse=T, fig.width=.8, fig.height=.8, fig.align='center', fig.cap='', dpi=600}
+plotly::ggplotly(g2, width = 400, height = 400)
 ```
 
 ]
@@ -336,31 +360,36 @@ plotly::ggplotly(g2)
 ---
 
 ## Terminologias e conceitos básicos
-<br>
 
 .left-column[
-
 ### Como extrair informações descritivas?
 
 * Usar representações gráficas
 
-```{r g3, echo=TRUE, eval=FALSE}
+```{r g3_codigo, echo=TRUE, eval=FALSE}
 # Criando um Scatterplot
 
 g3 <- data |>
-  ggplot(aes(x=D, y=V, color=QF)) +
-      geom_point(size = 3) +
-      theme(legend.position="none") 
+  ggplot(aes(x = D, y = V, color = QF)) +
+  geom_point(size = 3) +
+  theme_bw() +
+  theme(legend.position = "none")
 
-plotly::ggplotly(g3)
-  
+plotly::ggplotly(g3, width = 400, height = 400)
 ```
 
 ]
 
 .right-column[
+<br><br>
+```{r g3_plot, echo=FALSE, message=FALSE, warning=FALSE}
+g3 <- data |>
+  ggplot(aes(x = D, y = V, color = QF)) +
+  geom_point(size = 3) +
+  theme_bw() +
+  theme(legend.position = "none")
 
-```{r ref.label="g3", echo=FALSE, eval=TRUE, collapse=T, fig.width=.8, fig.height=.8, fig.align='center', fig.cap='', dpi=600}
+plotly::ggplotly(g3, width = 400, height = 400)
 ```
 
 ]
@@ -575,6 +604,153 @@ df |>
        ) 
      )
 ```
+
+]
+
+---
+
+## Terminologias e conceitos básicos
+<br>
+
+### Parâmetro x Estatística
+
+.font80[
+.left-column[
+📊 **Parâmetro**
+
+- Refere-se à população inteira
+- Seu valor é geralmente desconhecido
+- Representado por letras gregas
+
+<br>
+
+Exemplos:
+
+- Média populacional → μ (mi)
+- Variância populacional → σ² (sigma quadrado)
+- Desvio Padrão populacional → σ (sigma)
+]
+
+
+.right-column[
+👉 Exemplo:
+
+- A média da altura de **todas as árvores** de uma floresta.
+
+]
+]
+
+---
+
+## Terminologias e conceitos básicos
+<br>
+
+### Parâmetro x Estatística
+
+.font80[
+.left-column[
+📈 **Estatística**
+
+- É um valor calculado a partir dos dados coletados de uma amostra
+- Representado por letras latinas
+
+Exemplos:
+
+- Média amostral → x̄
+- Variância amostral → s²
+- Desvio padrão amostral → s
+]
+
+
+.right-column[
+👉 Exemplo:
+
+- A média da altura de uma **amostra de árvores** (por exemplo, 100 árvores) de uma floresta.
+
+
+<br><br>
+
+🧠 Resumindo...
+
+👉 **Parâmetro** = valor verdadeiro da população
+
+👉 **Estatística** = estimativa (do valor verdadeiro) obtida a partir da amostra
+
+]
+]
+
+
+---
+
+## 🌳 Exemplo aplicado à Engenharia Florestal
+<br>
+
+### 🎯 Situação prática (Inventário Florestal)
+<br>
+
+.pull-left-4[
+.font80[
+
+🌲 **Contexto**
+
+🔹 Imagine uma área com **10.000 árvores**...
+
+👉 Objetivo: estimar a **altura média das árvores da floresta**
+
+
+<br><br>
+
+
+🔍 **Estratégia de campo**
+
+👉 Medir uma **amostra de 100 árvores**
+
+📌 *Impraticável medir toda a população*
+
+]
+]
+
+--
+
+.pull-right-4[
+.font80[
+
+📈 **Resultado da amostra**
+
+Altura média (baseada na amostra) = **24,8 m**
+
+👉 Este valor é uma **ESTATÍSTICA (x̄)**
+
+<br><br>
+
+📈 **Estatística**  
+→ É uma estimativa baseada na amostra  
+→ x̄ = 24,8 m
+
+]
+]
+
+---
+
+## 🌳 Exemplo aplicado à Engenharia Florestal
+<br>
+
+### 🎯 Situação prática (Inventário Florestal)
+<br>
+
+.font80[
+➡️ Mas, e o **PARÂMETRO (μ)**?
+
+👉 É a média verdadeira da altura de **todas as árvores**...
+
+👉 Não medimos as alturas das 10.000 árvores. Portanto, **desconhecemos a média verdadeira** (μ).
+
+👉 Em geral, na prática as populações são extensas. Portanto, medir toda população demanda tempo e custo. Por isso, é preferível realizar amostragem e inferir para a população.
+
+<br><br>
+
+**Percebam: 24,8 m não é a média verdadeira das altura das árvores da floresta,
+é uma estimativa (aproximação) calculada a partir dos dados da amostra (100 árvores)**...
 
 ]
 
