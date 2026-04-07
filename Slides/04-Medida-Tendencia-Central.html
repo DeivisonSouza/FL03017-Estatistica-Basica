@@ -135,7 +135,7 @@ top:1em;right:.5em;
 ##### Laboratório de Manejo Florestal, Tecnologias e Comunidades Amazônicas
 ##### E-mail: deivisonvs@ufpa.br
 &lt;br&gt;
-##### 1ª versão: 06/abril/2021 &lt;br&gt; (Atualizado em: 06/abril/2026) &lt;br&gt; Altamira, Pará
+##### 1ª versão: 06/abril/2021 &lt;br&gt; (Atualizado em: 07/abril/2026) &lt;br&gt; Altamira, Pará
 
 ---
 layout: true
@@ -193,7 +193,7 @@ Ao final desta aula espera-se que o discente seja capaz de...
 
 [3 - Mediana](#Md)
 
-[4 - Quartis](#Qu)
+[4 - Quartis, Decis, Percentis](#Qu)
 
 [5 - Média Aritmética](#Me)
 ]
@@ -253,6 +253,21 @@ São medidas que objetivam representar o ponto central (ou de equilíbrio) de um
 &lt;br&gt;
 ### Principais medidas de posição
 &lt;img src="fig/class0/MTC.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;!-- Slide XX --&gt;
+---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de tendência central &lt;br&gt; .blue[(Moda)]**]
+
+---
+layout: true
+&lt;div class="my-header"&gt;&lt;/div&gt;
+&lt;div class="my-footer"&gt;&lt;span&gt;Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central&lt;/div&gt;
 
 ---
 
@@ -528,6 +543,20 @@ table(S4)
 - Pode mudar se inserirmos novas observações.
 
 ---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de tendência central &lt;br&gt; .blue[(Mediana)]**]
+
+---
+layout: true
+&lt;div class="my-header"&gt;&lt;/div&gt;
+&lt;div class="my-footer"&gt;&lt;span&gt;Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central&lt;/div&gt;
+
+---
 
 ## Medidas de tendência central (ou posição)
 &lt;br&gt;
@@ -708,6 +737,20 @@ median(S2)
 --
 &lt;br&gt;&lt;br&gt;
 - **Número ímpar de observações**: Nestes casos, haverá coincidência da mediana com um dos elementos dos dados ordenados.
+
+---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de tendência central &lt;br&gt; .blue[(Média Aritmética)]**]
+
+---
+layout: true
+&lt;div class="my-header"&gt;&lt;/div&gt;
+&lt;div class="my-footer"&gt;&lt;span&gt;Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central&lt;/div&gt;
 
 ---
 
@@ -955,6 +998,54 @@ mean(df$V)
 ## [1] 0.1964
 ```
 ]
+
+---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de posição &lt;br&gt; .blue[(Quartis, Decis, Percentis)]**]
+
+---
+layout: true
+&lt;div class="my-header"&gt;&lt;/div&gt;
+&lt;div class="my-footer"&gt;&lt;span&gt;Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central&lt;/div&gt;
+
+---
+
+## Medidas de posição
+&lt;br&gt;
+
+### Quartis, Decis, Percentis - Conceito
+&lt;br&gt;
+
+.shadow4[
+.font80[
+- **Quartis** = São medidas de posição que dividem um conjunto de dados, dispostos em ordem crescente, em quatro partes iguais. Precisa-se, portanto de 3 quartis para dividir um conjunto de dados em 4 partes iguais.
+
+&lt;br&gt;
+- **Decis** = São medidas de posição que dividem um conjunto de dados, dispostos em ordem crescente, em dez partes iguais.
+
+&lt;br&gt;
+- **Percentis** = São medidas de posição que dividem um conjunto de dados, dispostos em ordem crescente, em cem partes iguais.
+]
+]
+
+---
+
+## Medidas de posição
+&lt;br&gt;
+
+### Quartis (dividem em 4 partes)
+&lt;br&gt;
+
+São os valores que dividem uma série ordenada de dados em 4 partes iguais:
+
+- Q1 (1º quartil) → 25% dos dados estão abaixo do Q1
+- Q2 (2º quartil) → 50% (mediana) dos dados estão abaixo do Q2
+- Q3 (3º quartil) → 75% dos dados estão abaixo do Q3
 
 ---
 ## Referências

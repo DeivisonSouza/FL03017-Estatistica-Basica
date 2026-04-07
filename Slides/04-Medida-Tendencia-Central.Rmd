@@ -184,9 +184,10 @@ Ao final desta aula espera-se que o discente seja capaz de...
 
 [3 - Mediana](#Md)
 
-[4 - Quartis](#Qu)
+[4 - Média Aritmética](#Me)
 
-[5 - Média Aritmética](#Me)
+[5 - Quartis, Decis, Percentis](#Qu)
+
 ]
 ]
 
@@ -248,6 +249,21 @@ São medidas que objetivam representar o ponto central (ou de equilíbrio) de um
 ```{r, echo=FALSE, out.width='60%', fig.align='center', fig.cap='', dpi=600}
 knitr::include_graphics('fig/class0/MTC.png')
 ```
+
+<!-- Slide XX -->
+---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de tendência central <br> .blue[(Moda)]**]
+
+---
+layout: true
+<div class="my-header"></div>
+<div class="my-footer"><span>Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&emsp;&emsp;&emsp;&emsp;&emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central</div>
 
 ---
 
@@ -515,6 +531,20 @@ table(S4)
 - Pode mudar se inserirmos novas observações.
 
 ---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de tendência central <br> .blue[(Mediana)]**]
+
+---
+layout: true
+<div class="my-header"></div>
+<div class="my-footer"><span>Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&emsp;&emsp;&emsp;&emsp;&emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central</div>
+
+---
 
 ## Medidas de tendência central (ou posição)
 <br>
@@ -692,6 +722,20 @@ median(S2)
 --
 <br><br>
 - **Número ímpar de observações**: Nestes casos, haverá coincidência da mediana com um dos elementos dos dados ordenados.
+
+---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de tendência central <br> .blue[(Média Aritmética)]**]
+
+---
+layout: true
+<div class="my-header"></div>
+<div class="my-footer"><span>Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&emsp;&emsp;&emsp;&emsp;&emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central</div>
 
 ---
 
@@ -1021,6 +1065,54 @@ mean(df$H)
 mean(df$V)
 ```
 ]
+
+---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Medidas de posição <br> .blue[(Quartis, Decis, Percentis)]**]
+
+---
+layout: true
+<div class="my-header"></div>
+<div class="my-footer"><span>Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&emsp;&emsp;&emsp;&emsp;&emsp;Estatística Básica (FL03017-EB) - Medidas de tendência central</div>
+
+---
+
+## Medidas de posição
+<br>
+
+### Quartis, Decis, Percentis - Conceito
+<br>
+
+.shadow4[
+.font80[
+- **Quartis** = São medidas de posição que dividem um conjunto de dados, dispostos em ordem crescente, em quatro partes iguais. Precisa-se, portanto de 3 quartis para dividir um conjunto de dados em 4 partes iguais.
+
+<br>
+- **Decis** = São medidas de posição que dividem um conjunto de dados, dispostos em ordem crescente, em dez partes iguais.
+
+<br>
+- **Percentis** = São medidas de posição que dividem um conjunto de dados, dispostos em ordem crescente, em cem partes iguais.
+]
+]
+
+---
+
+## Medidas de posição
+<br>
+
+### Quartis (dividem em 4 partes)
+<br>
+
+São os valores que dividem uma série ordenada de dados em 4 partes iguais:
+
+- Q1 (1º quartil) → 25% dos dados estão abaixo do Q1
+- Q2 (2º quartil) → 50% (mediana) dos dados estão abaixo do Q2
+- Q3 (3º quartil) → 75% dos dados estão abaixo do Q3
 
 ---
 ## Referências
