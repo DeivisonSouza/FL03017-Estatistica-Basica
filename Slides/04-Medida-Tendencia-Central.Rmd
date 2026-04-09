@@ -116,7 +116,7 @@ BibOptions(check.entries = FALSE,
 <!-- title-slide -->
 ### Estatística Básica <br> (FL03017-EB)
 
-## ᨒ <br>   `r anicon::faa("pagelines", animate="horizontal", colour="green")` Medidas de Tendência Central `r anicon::faa("pagelines", animate="horizontal", colour="green")` <br> ᨒ
+## ᨒ <br>   `r anicon::faa("pagelines", animate="horizontal", colour="green")` Medidas de Tendência Central `r anicon::faa("pagelines", animate="horizontal", colour="green")` <br> ou Posição  <br> ᨒ
 
 ##### 〰〰〰〰〰〰🌱〰〰〰〰〰〰
 ##### ᨒ
@@ -167,8 +167,10 @@ layout: true
 Ao final desta aula espera-se que o discente seja capaz de...
 
 * Reconhecer as principais medidas de tendência central (média, mediana e moda);
-* Calcular as medidas de tendência central em diferentes conjuntos de dados; e
-* Interpretar os resultados obtidos, compreendendo seu significado no contexto dos dados analisados.
+* Reconhecer as principais medidas de Posição (Quartis, Decis e Percentis);
+* Calcular as medidas de tendência central ou posição e interpretá-las;
+* Reconhecer algumas funções em liguagem de programação R para calcular medidas de tendência central ou posição; e
+* Compreender e construir gráfico BoxPlot usando as medidas de posição (quartis) calculados.
 
 ---
 
@@ -186,7 +188,7 @@ Ao final desta aula espera-se que o discente seja capaz de...
 
 [4 - Média Aritmética](#Me)
 
-[5 - Quartis, Decis, Percentis](#Qu)
+[5 - Quartis, Decis, Percentis (separatrizes)](#Qu)
 
 ]
 ]
