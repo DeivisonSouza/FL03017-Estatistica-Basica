@@ -225,34 +225,38 @@ layout: true
 <div class="my-footer"><span>Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&emsp;&emsp;&emsp;&emsp;&emsp;Estatística Básica (FL03017-EB) - Medidas de Dispersão (ou Variabilidade)</div>
 
 ---
+name: mot
+## Motivação: Porque calcular medidas de dispersão?
+<br><br>
 
-name: ci
-## Medidas de dispersão (ou variação)
+.shadow4[
+.font90[
+📊 **Medidas de tendência central:**
 <br>
 
-### Conceito
+📍 **Foco:** Sintetizam o valor mais frequente ou o ponto central de uma distribuição de dados.
+<br><br>
 
-É o espalhamento (dispersão) dos dados em torno de uma medida de tendência central.
+⚠️ **Limitação:** Isoladamente, essas medidas não permitem avaliar o **grau de variabilidade** (dispersão) entre os valores observados.
+<br><br>
 
-`r anicon::faa("hand-point-right", animate="horizontal")` A média aritmética é a medida de tendência central comumente usada.
-
---
-<br>
-### Principais medidas de dispersão
-```{r, echo=FALSE, out.width='60%', fig.align='center', fig.cap='', dpi=600}
-knitr::include_graphics('fig/class2/MD.png')
-```
+✅ **Solução:** utilizar medidas de dispersão (ou variabilidade), que descrevem a variabilidade dos dados.
+]
+]
 
 ---
 
-## Medidas de dispersão (ou variação)
+## Motivação: Porque calcular medidas de dispersão?
 <br>
 
-### O que é dispersão?
+### Inicialmente, vamos entender o que é dispersão...
 
+.font80[
 Imagine que foram realizadas duas amostras de cinco árvores. De cada árvore mediu-se a altura comercial, em metros:
+]
 
 .pull-left-5[
+<br>
 ```{r echo=F, eval=T}
 
 df <- data.frame(
@@ -275,21 +279,67 @@ df %>%
 
 ]
 
+--
+
 .pull-right-5[
 ```{r echo=T, eval=T}
 colMeans(df)
 ```
+.font80[
 - A média aritmética das alturas de ambas as amostras é 16m.
 - Na A1 as alturas variaram entre 13 e 19m. (**Existe dispersão**)
 - Na A2 as árvores possuem mesma altura (16m). (**Não existe dispersão**)
+<br><br>
+
+**Na natureza, a variabilidade sempre existe, mesmo que muito pequena!**
+
+]
 ]
 
 ---
 
-## Medidas de dispersão (ou variação)
+## Motivação: Porque calcular medidas de dispersão?
+<br>
+### Exemplo 1: mesma média de DAP, dispersões diferentes...
+.font80[
+👉 Considere duas áreas florestais com medições de diâmetro (cm):
+<br>
+- 🌲 **Área A**: 28, 29, 30, 31, 32
+- 🌳 **Área B**: 10, 20, 30, 40, 50
+<br>
+]
+
+--
+
+.font80[
+📍 Observe que **diâmetro médio** das duas áreas é **30 cm**.
+<br><br>
+]
+
+--
+
+.font80[
+⚠️ **Mas, atenção**:
+
+- 🌲 **Área A**: baixa variabilidade (diâmetros próximos entre si) → povoamento equiâneo
+- 🌳 **Área B**: alta variabilidade (diâmetros muito dispersos) → floresta inequiânea.
+]
+
+--
+
+.font80[
+<br>
+📍 **Conclusão**: mesma média de diâmetros, variabilidade distinta → **estruturas florestais diferentes**.
+
+📍 **Moral**: olhar apenas para a média não é suficiente — **a variabilidade também importa**.
+]
+
+---
+
+## Motivação: Porque calcular medidas de dispersão?
 <br>
 
-### Por que medir a variância (ou dispersão) dos dados?
+### Exemplo 2: Olhar somente para a média pode ser enganoso...
 
 .pull-left-5[
 ```{r echo=F, eval=T}
@@ -319,44 +369,60 @@ df %>%
 ]
 
 .pull-right-5[
-Um experimento foi conduzido para avaliar o efeito de dois tipos de substratos (Solo Arenoso + Matéria Orgânica - SA+MO e Solo Arenoso-SA) no crescimento em altura de uma espécie florestal. As alturas das plântulas, em cm, foram medidas após 30 dias de germinação.
+.font80[
+Considere que um experimento foi conduzido para avaliar o efeito de dois tipos de substratos:
+<br>
+👉 Solo Arenoso + Matéria Orgânica (SA+MO)
 
-- **Pergunta**: Em função do crescimento em altura pergunta-se: Qual o melhor substrato para a produção de mudas da espécie?
+👉 Solo Arenoso (SA)
 
-`r anicon::faa("hand-point-right", animate="horizontal")` **Importante**: O tipo de substrato indicado será usado para produção de mudas em larga escala.
+- **Objetivo**: Avaliar o efeito sobre o crescimento em altura de uma espécie florestal. 
+- **Variável**: Alturas das plântulas (em cm), medidas após 30 dias de germinação.
+- **Pergunta**: Em função do crescimento em altura pergunta-se: **Qual o melhor substrato para a produção de mudas da espécie?**
+
+`r anicon::faa("hand-point-right", animate="horizontal")` **Importante**: O tipo de substrato indicado será usado para produção de mudas em larga escala. Portanto, é sempre desejável mudas de alta qualidade e uniformidade.
 
 
+]
 ]
 
 ---
 
-## Medidas de dispersão (ou variação)
+## Motivação: Porque calcular medidas de dispersão?
 <br>
 
-### Por que medir a variância (ou dispersão) dos dados?
+### Exemplo 2: Olhar somente para a média pode ser enganoso...
 
-- Em geral, a média aritmética é a primeira estimativa da amostra calculada:
+.font80[
+- Em geral, a média aritmética é a primeira medida descritiva que calculamos:
+]
 
 .pull-left-4[
+.font70[
 ```{r echo=T, eval=T}
 df %>%
   group_by(Tratamento) %>% 
-  summarise(media=mean(Altura))
+  summarise(media = sprintf("%.2f", mean(Altura)))
 ```
 
-.font65[
+💡 **Interpretação** - Média das alturas:
 - Em termos médios, parece não haver efeito significativo dos tratamentos.
 - Avaliar a variância ajuda a "enxergar" o problema melhor.
 - Para qual substrato o crescimento em altura foi mais uniforme?
+
 ]
 ]
 
+
 .pull-right-4[
-```{r echo=F, eval=T, collapse=T, out.width="68%", fig.align='center', fig.cap='', dpi=600}
+```{r echo=F, eval=T, collapse=T, out.width="70%", fig.align='center', fig.cap='', dpi=600}
 df %>%
   ggplot(aes(Tratamento, Altura, fill = Tratamento)) +   
   geom_bar(position = "dodge", stat = "summary", 
            fun.y = "mean", alpha = .5) +
+  stat_summary(fun = mean, geom = "text", aes(label = round(..y.., 2)), 
+               vjust = -0.5, size = 6) +
+  labs(title = "Altura média por tratamento") +
   theme_bw(base_size = 24) +
     theme(panel.grid = element_blank(),
           legend.position="none")
@@ -366,12 +432,14 @@ df %>%
 
 ---
 
-## Medidas de dispersão (ou variação)
+## Motivação: Porque calcular medidas de dispersão?
 <br>
 
-### Por que medir a variância (ou dispersão) dos dados?
+### Exemplo 2: Olhar somente para a média pode ser enganoso...
 
+.font80[
 - **Gráfico Dot Plot**: Ajuda a visualizar como a altura das plântulas variou para cada tratamento:
+]
 
 .pull-left-4[
 ```{r echo=F, eval=T, collapse=T, out.width="68%", fig.align='center', fig.cap='', dpi=600}
@@ -387,12 +455,35 @@ df %>%
 ```
 ]
 
+--
+
 .pull-right-4[
-**Interpretação - Variância**
-- O efeito do tratamento com SA+MO no crescimento foi mais uniforme (< variância).
-- O efeito do tratamento com SA no crescimento foi mais heterogêneo (> variância).
-- Portanto, "olhar" apenas para média pode conduzir à indicação equivocada do melhor tratamento.
+.font70[
+💡 **Interpretação** - Variância das alturas:
+- O efeito do tratamento com **SA+MO** no crescimento foi **mais uniforme** (**< variância**).
+- O efeito do tratamento com **SA** no crescimento foi **mais heterogêneo** (**> variância**).
+- Portanto, **"olhar" apenas para média pode conduzir à indicação equivocada do melhor tratamento.**
 ]
+]
+
+---
+
+name: ci
+## Medidas de dispersão (ou variação)
+<br>
+
+### Conceito
+
+É o espalhamento (dispersão) dos dados em torno de uma medida de tendência central.
+
+`r anicon::faa("hand-point-right", animate="horizontal")` A média aritmética é a medida de tendência central comumente usada.
+
+--
+<br>
+### Principais medidas de dispersão
+```{r, echo=FALSE, out.width='60%', fig.align='center', fig.cap='', dpi=600}
+knitr::include_graphics('fig/class2/MD.png')
+```
 
 ---
 
