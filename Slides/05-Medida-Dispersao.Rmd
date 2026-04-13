@@ -1,6 +1,6 @@
 ---
 title: "Experimentação Florestal (FL03034 - EF)"
-subtitle: "Medidas de dispersão"
+subtitle: "Medidas de dispersão (ou variabilidade)"
 author: "Prof. Dr. Deivison Venicio Souza"
 institute: "Universidade Federal do Pará (UFPA)"
 date: 
@@ -535,7 +535,7 @@ max(S1) - min(S1)
 - Apenas indica a existência (ou não) de dispersão;
 - Usa apenas os valores extremos dos dados;
 - É influenciada por valores extremos (*outliers*);
-- É uma medida "pobre", pois não mede a dispersão interna. 
+- É uma medida "fraca", pois não mede a dispersão interna. 
 
 ]
 
@@ -684,7 +684,7 @@ df %>%
 
 SQR = **1,7757** (Variação total)
 
-S² = SQR/n-1 = 1,7757/(5-1) = **0,4439m²** (Variação média)
+S² = SQR/n-1 = 1,7757/(5-1) = **0,4439 (cm)²** (Variação média)
 ]
 
 ---
@@ -755,7 +755,7 @@ df %>%
 
 SQR = **246,6085** (Variação total)
 
-S² = SQR/n-1 = 246,6085/(5-1) = **61,6521m²** (Variação média)
+S² = SQR/n-1 = 246,6085/(5-1) = **61,6521 (cm)²** (Variação média)
 ]
 
 ---
