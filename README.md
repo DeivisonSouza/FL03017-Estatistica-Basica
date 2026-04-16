@@ -63,6 +63,7 @@ Básica** (FL03017-EB) estão detalhados a seguir.
 | Slides/04-Medida-Tendencia-Central.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/04-Medida-Tendencia-Central.html> |
 | Slides/05-Medida-Dispersao.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/05-Medida-Dispersao.html> |
 | Slides/06-R-Instalacao.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/06-R-Instalacao.html> |
+| Slides/07-Linguagem-R-Estrutura-Dados.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/07-Linguagem-R-Estrutura-Dados.html> |
 
 # Materias de apoio
 
