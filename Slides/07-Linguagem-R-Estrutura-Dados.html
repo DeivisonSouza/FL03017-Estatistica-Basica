@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Estatística Básica (FL03017-EB)</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Dr. Deivison Venicio Souza" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/header-attrs-2.29/header-attrs.js"></script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/fabric-4.3.1/fabric.min.js"></script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="07-Linguagem-R-Estrutura-Dados_files/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/shareon-1.4.1/shareon.min.js"></script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <script src="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-progressBar-0.0.1/progress-bar.js"></script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"fef01c58bb49449f9e835fde5ac2a50c","expires":1}</script>
+    <script src="07-Linguagem-R-Estrutura-Dados_files/himalaya-1.1.0/himalaya.js"></script>
+    <script src="07-Linguagem-R-Estrutura-Dados_files/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/editable-0.2.6/editable.js"></script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="07-Linguagem-R-Estrutura-Dados_files/font-awesome-animation-1.0/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="07-Linguagem-R-Estrutura-Dados_files/fontawesome-5.0.13/js/fontawesome-all.min.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+    </script>
+    <style>
+    .mjx-mrow a {
+      color: black;
+      pointer-events: none;
+      cursor: default;
+    }
+    </style>
+    <link rel="stylesheet" href="assets/sydney-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/slide-title/sydney-title.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide, center, middle
+background-image: url(fig/slide-title/LMFTCA.png), url(fig/slide-title/ufpa.png), url(fig/slide-title/capa2.png)
+background-position: 90% 90%, 10% 90%
+background-size: 150px, 150px, cover
+
+
+
+&lt;style type="text/css"&gt;
+.with-logo::before {
+	content: '';
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	bottom: 1.3em;
+	right: -0.5em;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.logo-ufpa::before {
+	background-image: url(fig/slide-title/ufpa.png);
+}
+
+.logo-dplyr::before {
+	background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/dplyr.png);
+}
+
+.logo-purrr::before {
+	background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/purrr.png);
+}
+
+.logo-plumber::before {
+	background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/plumber.png);
+}
+&lt;/style&gt;
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 130px;
+height: 130px;
+z-index: 0;
+background-image: url(fig/slide-title/LMFTCA.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div><style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: red;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
+
+
+
+&lt;!-- title-slide --&gt;
+### Estatística Básica &lt;br&gt; (FL03017-EB)
+
+## ᨒ &lt;br&gt;   <span>&lt;i class="fab  fa-pagelines faa-horizontal animated " style=" color:green;"&gt;&lt;/i&gt;</span> Introdução à Linguagem R <span>&lt;i class="fab  fa-pagelines faa-horizontal animated " style=" color:green;"&gt;&lt;/i&gt;</span> &lt;br&gt; 🍃 .font70[.brand-green[(Estrutura de Dados)]] 🍃  &lt;br&gt; ᨒ
+
+##### 〰〰〰〰〰〰🌱〰〰〰〰〰〰
+##### ᨒ
+##### .font120[**Prof. Dr. Deivison Venicio Souza**]
+##### Universidade Federal do Pará (UFPA)
+##### Faculdade de Engenharia Florestal
+##### Laboratório de Manejo Florestal, Tecnologias e Comunidades Amazônicas
+##### E-mail: deivisonvs@ufpa.br
+&lt;br&gt;
+##### 1ª versão: 16/abril/2021 &lt;br&gt; (Atualizado em: 16/abril/2026) &lt;br&gt; Altamira, Pará
+
+---
+layout: true
+class: with-logo logo-ufpa
+&lt;div class="my-header"&gt;&lt;/div&gt;
+&lt;div class="my-footer"&gt;&lt;span&gt;Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; &lt;div3&gt;Estatística Básica (FL03017-EB)&lt;/div3&gt;/ &lt;div2&gt;Introdução à Linguagem R: Estrutura de Dados&lt;/div2&gt; &lt;/div&gt;
+
+---
+
+## Objetivos
+&lt;br&gt;&lt;br&gt;
+Ao final desta aula espera-se que os discentes sejam capazes de:
+
+* Compreender as principais estruturas de dados utilizadas na linguagem R;
+* Diferenciar conceitualmente e na prática as estruturas: vetor, matriz, array, data frame e lista; e
+* Utilizar funções essenciais para criação e manipulação dessas diferentes estruturas de dados.
+
+---
+
+## Conteúdo
+
+.pull-left-4[
+**Estrutura de dados na linguagem R**
+
+[1 - Vetores](#vet)
+
+[2 - Matrizes](#mat)
+
+[3 - Arrays](#arrays)
+
+[4 - Data Frames](#df)
+
+[5 - Listas](#list)
+
+]
+
+---
+layout: false
+name: conc
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+.font200[**Introdução à Linguagem R] &lt;br&gt; 
+.font150[.blue[(Estrutura de Dados)]**]
+
+---
+layout: true
+&lt;div class="my-header"&gt;&lt;/div&gt;
+&lt;div class="my-footer"&gt;&lt;span&gt;Prof. Dr. Deivison Venicio Souza (E-mail: deivisonvs@ufpa.br)&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;Estatística Básica (FL03017-EB) - Introdução à Linguagem R: Estrutura de Dados&lt;/div&gt;
+
+---
+
+## Estrutura de dados na linguagem R
+
+- O R pode armazenar dados em diferentes estruturas.
+
+&lt;img src="fig/Class7/EstrDados.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+&lt;!-- .pull-right-4[ --&gt;
+&lt;!-- .font90[ --&gt;
+&lt;!-- **Vetores - Características**  --&gt;
+
+&lt;!-- a) Sequência de elementos; b) possui uma dimensão; c) admitem apenas elementos da mesma natureza. --&gt;
+
+&lt;!-- **Matrizes - Características**  --&gt;
+
+&lt;!-- a) Admite duas dimensões (linhas e colunas); b) formada por elementos de uma única classe. --&gt;
+
+&lt;!-- **Data Frames - Características**  --&gt;
+
+&lt;!-- a) Admite duas dimensões (linhas e colunas); b) Pode reunir vetores de diferentes classes, com a condição de possuírem igual --&gt;
+&lt;!-- comprimento. --&gt;
+
+&lt;!-- **Lista - Características** --&gt;
+
+&lt;!-- a) Admite diferentes estruturas de dados (vetores, matrizes, data frames e inclusive outras listas). --&gt;
+
+&lt;!-- ] --&gt;
+&lt;!-- ] --&gt;
+
+---
+
+## Estrutura de dados na linguagem R
+
+- O R pode armazenar dados em diferentes estruturas
+
+&lt;img src="http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png" width="80%" style="display: block; margin: auto;" /&gt;
+.font70[
+**Fonte**: http://venus.ifca.unican.es/Rintro/dataStruct.html]
+
+---
+name: vet
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores
+
+.pull-left-4[
+- É a forma mais simples de armazenar dados no R;
+- São caracterizados por possuírem somente uma dimensão;
+- Todos os seus elementos constituintes devem ter, obrigatoriamente, a mesma natureza (classe).
+]
+
+
+.pull-right-4[
+.center[**Principais classes de vetores**]
+&lt;br&gt;
+
+&lt;img src="fig/Class7/Clv.png" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - Principais funções do R-base para criar vetores...
+&lt;br&gt;
+
+.pull-left-4[
+**1. Função .black[c() (concatenate)]**
+
+Função genérica que permite concatenar (combinar) argumentos para formar um vetor.
+&lt;br&gt;&lt;br&gt;
+
+**2. Função .black[seq() (sequence)]**
+
+Função genérica usada para gerar sequências de números em intervalos pré-definidos.
+]
+
+
+.pull-right-4[
+**3. Função .black[rep() (replicate)]**
+
+Função genérica usada para replicar um elemento “x”.
+&lt;br&gt;&lt;br&gt;
+
+**4. Função .black[scan()]**
+
+Usada para criar vetores diretamente no R Console.
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função c() (concatenate)]
+
+.pull-top[
+.pull-left-4[
+**Classe "character"**
+
+``` r
+# Cria um vetor
+c("Acapu", "Araucaria", "Mogno", "Cedro")
+```
+
+
+``` r
+# Cria um vetor e faz atribuição
+especie &lt;- c("Acapu", "Mogno", "Cedro", "Ipe")
+#class(especie)
+```
+]
+
+.pull-right-4[
+**Classe "numeric"**
+
+``` r
+# Cria um vetor
+c(23.0, 27.0, 33.6, 42.6, 52.1)
+```
+
+
+``` r
+# Cria um vetor e faz atribuição
+diametro &lt;- c(23.0, 27.0, 33.6, 42.6, 52.1)
+#class(diametro)
+```
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função c() (concatenate)]
+
+.pull-left-10[
+**Classe "factor"**
+.font90[
+- Por padrão, ao concatenar **strings** cria-se um vetor de classe **character**.
+- Se desejável, pode-se codificar um vetor de classe **character** para a classe **factor**.
+- O R-base possui duas funções: .green[factor()] e .green[as.factor()].
+- Motivos: modelos estatísticos e gráficos
+]
+]
+
+.pull-right-10[
+
+``` r
+# Cria um vetor - Fitofisionomia
+(Fito &lt;- c("FOM", "FOA", "FOM", "FOM", "FOM", "FOA"))
+## [1] "FOM" "FOA" "FOM" "FOM" "FOM" "FOA"
+class(Fito)
+## [1] "character"
+```
+
+
+``` r
+# Codifica para "factor"
+Fito &lt;- c("FOM", "FOA", "FOM", "FOM", "FOM", "FOA")
+(Fito &lt;- factor(Fito))
+## [1] FOM FOA FOM FOM FOM FOA
+## Levels: FOA FOM
+class(Fito)
+## [1] "factor"
+```
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função c() (concatenate)]
+
+.pull-left-10[
+**Classe "factor" - declarando hierarquia**
+.font90[
+- Por padrão, os níveis (levels) de um vetor de classe **factor** ficam dispostos em ordem alfabética.
+- Em algumas situações, pode ser desejável estabelecer uma hierarquia entre esses níveis.
+- Por exemplo, imagine a variável mês de coleta. É evidente que existe hierarquia entre os meses.
+]
+]
+
+.pull-right-10[
+.font90[
+**Níveis do mês não ordenados**
+
+``` r
+(mes &lt;- factor(
+  c("Janeiro", "Abril", "Julho", "Outubro")
+  ))
+## [1] Janeiro Abril   Julho   Outubro
+## Levels: Abril Janeiro Julho Outubro
+```
+
+**Níveis do mês ordenados**
+
+
+``` r
+(mes &lt;- 
+   factor(x = mes,
+          levels = c("Janeiro", "Abril", 
+                     "Julho", "Outubro"),
+               ordered = TRUE))
+## [1] Janeiro Abril   Julho   Outubro
+## Levels: Janeiro &lt; Abril &lt; Julho &lt; Outubro
+```
+
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função seq() (sequence)]
+&lt;br&gt;
+
+.blockquote[
+.center[.blue[seq(]**from** = ?, **to** = ?, **by** = ?, **length.out** = ?, **along.with** = ?.blue[)]]
+&lt;br&gt;
+
+.font90[
+**from** = define um valor inicial (start) para a sequência.
+
+**to** = define um valor máximo para a sequência.
+
+**by** = define um valor incremental para a sequência.
+
+**length.out** = define o comprimento da sequência dentro de um intervalo.
+
+**along.with** = define uma sequência de inteiros do tamanho do argumento repassado.
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função seq() (sequence)]
+
+.pull-top[
+.pull-left-4[
+
+``` r
+# 1 a 10, com intervalo 1.
+seq(10)
+
+# Sequência de 1 a 10, com intervalo 1.
+seq(1:10)
+
+# Sequência de 1 a 10, com intervalo 1.
+seq(from = 1, to = 10, by = 1)
+
+# Sequência de -2 a 10, com intervalo 2.
+seq(from = -2, to = 10, by = 2)
+
+# Sequência de 11 números entre 0 e 1.
+seq(from=0, to=1, length.out = 5)
+
+# Sequência do tamanho do vetor-espécie.
+especie &lt;- c("Acapu", "Mogno", "Cedro", "Ipe")
+seq(along.with = especie)
+```
+]
+
+.pull-right-4[
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+##  [1]  1  2  3  4  5  6  7  8  9 10
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## [1] -2  0  2  4  6  8 10
+## [1] 0.00 0.25 0.50 0.75 1.00
+## [1] 1 2 3 4
+```
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função rep() (replicate)]
+&lt;br&gt;
+
+.blockquote[
+.center[.blue[rep(]**x** = ?, **times** = ?, **each** = ?.blue[)]]
+&lt;br&gt;
+
+.font90[
+**x** = escalar, vetor ou uma lista, entre outros.
+
+**times** = um vetor de inteiro (não negativo) indicando quantas vezes repetir cada elemento.
+
+**each** = cada elemento de x é repetido n vezes.
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função rep() (replicate)]
+
+.pull-top[
+.pull-left-4[
+.font90[
+
+``` r
+# Repete a sequência de 1 a 4 (2x).
+rep(x = 1:4, 2)
+
+# Repete a sequência de 1 a 4 (3x).
+rep(x = 1:4, times = 3)
+
+# Repete cada valor em "x" (2x).
+rep(x = 1:4, each = 2)
+
+# Repete cada valor em "x" (2x).
+rep(x = 1:4, c(2,2,2,2))
+
+# Repete cada valor em "x", com base em c().
+rep(1:4, c(2,1,2,1))
+
+# Repete cada valor em "x", até 4 números.
+rep(1:4, each = 2, len = 4)
+
+# Repete cada valor em "x" (2x), por 3x.
+rep(1:2, each = 2, times = 3)
+```
+]
+]
+
+.pull-right-4[
+
+```
+## [1] 1 2 3 4 1 2 3 4
+##  [1] 1 2 3 4 1 2 3 4 1 2 3 4
+## [1] 1 1 2 2 3 3 4 4
+## [1] 1 1 2 2 3 3 4 4
+## [1] 1 1 2 3 3 4
+## [1] 1 1 2 2
+##  [1] 1 1 2 2 1 1 2 2 1 1 2 2
+```
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Vetores - .black[Função scan()]
+
+.pull-left-4[
+.font90[
+**Procedimento**
+
+**Passo 1⁰**: digitar no R console, por exemplo: y &lt;- scan()
+
+**Passo 2⁰**: Digitar o primeiro dado e apertar `\(&lt;ENTER&gt;\)`. Seguir esse passo até o último dado.
+
+**Passo 3⁰**: Para encerrar a entrada de dados basta apertar `\(&lt;ENTER&gt;\)` duas vezes.
+]
+]
+
+.pull-right-4[
+.font90[
+**Atividade para** <span>&lt;i class="fas  fa-home faa-horizontal animated "&gt;&lt;/i&gt;</span>
+
+Use a função .blue[scan()] para criar vetores para as variáveis da tabela a seguir diretamente no R console:
+&lt;br&gt;
+
+
+```
+##     especie diametro altura
+## 1     Acapu     23.0    8.5
+## 2 Araucaria     27.0    9.2
+## 3     Mogno     33.6   10.5
+## 4     Cedro     42.6   13.4
+## 5       Ipe     52.1   15.8
+```
+
+**Obs.**: Para vetores da class **character** especifique o argumento **what = character()**. 
+
+y &lt;- scan(what = character())
+]
+]
+
+---
+name: mat
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Matrizes - .black[Propriedades]
+
+.pull-left-4[
+.font90[
+- São caracterizadas por possuírem duas dimensões (linhas e colunas) - bidimensional.
+- Todos os seus elementos possuem a mesma classe (numeric, character ou logical).
+- O R-base possui 3 funções principais: .green[cbind()], .green[rbind()], .green[matrix()].
+- A função .green[matrix()] é considerada mais eficiente.
+]
+]
+
+
+.pull-right-4[
+
+.blockquote[
+.font90[
+.center[.blue[matrix(]**data** = NA, **nrow** = 1, **ncol** = 1, **byrow** = FALSE, **dimnames** = NULL.blue[)]]
+&lt;br&gt;
+
+**data** = um vetor de dados (opcional).
+
+**nrow** = número de linhas da matriz.
+
+**ncol** = número de colunas da matriz.
+
+**byrow** = argumento lógico. Se **FALSE** (padrão), a matriz é preenchida por colunas. Se **TRUE**, a matriz é preenchida por linhas.
+
+**dimnames** = Insere os rótulos das linhas e colunas da matriz com a função .green[list()].
+]
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Matrizes - .black[Função matrix()]
+
+.pull-top[
+.pull-left-4[
+.font90[
+
+``` r
+# Cria uma matriz de 1 a 6, com 2 linhas e 3 colunas
+(mat1 &lt;- matrix(data=1:6, nrow=2, ncol=3))
+```
+
+
+``` r
+# Atribui nomes às linhas e colunas
+rownames(mat1) &lt;- c("L1","L2"); print(mat1)
+
+colnames(mat1) &lt;- c("C1","C2","C3"); print(mat1)
+```
+&lt;br&gt;
+
+- Se desejável, pode-se usar as funções .green[rownames()] e .green[colnames()] para atribuir nomes às linhas e colunas da matriz.
+
+]
+]
+]
+
+.pull-right-4[
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+```
+
+
+```
+##    [,1] [,2] [,3]
+## L1    1    3    5
+## L2    2    4    6
+```
+
+```
+##    C1 C2 C3
+## L1  1  3  5
+## L2  2  4  6
+```
+
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Matrizes - .black[Função matrix()]
+
+- Outra forma de atribuir nomes às linhas e colunas é usar o parâmetro **dimnames** da própria função .blue[matrix()].
+
+
+.pull-left-4[
+
+``` r
+(mat2 &lt;- 
+   matrix(data=1:6, nrow=2, 
+          ncol=3, byrow=TRUE,
+          dimnames=list(c("L1", "L2"),
+                        c("C1", "C2", "C3"))))
+```
+]
+
+.pull-right-4[
+
+```
+##    C1 C2 C3
+## L1  1  2  3
+## L2  4  5  6
+```
+]
+
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Matrizes - .black[Situações especiais]
+&lt;br&gt;
+
+- Ao criar-se matrizes atentar-se para duas situações:
+&lt;br&gt;
+
+1 - **Descarte de elementos**: Quando a quantidade de elementos (n) for maior que a quantidade de linhas e colunas (ncol x nrow).
+
+2 - **Regra da Reciclagem**: Quando a quantidade de linhas e colunas (ncol x nrow) for maior do que a quantidade de elementos (n).
+
+---
+name: arrays
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Arrays - .black[Propriedades]
+
+.pull-left-4[
+.font80[
+- Os arrays generalizam a noção de matriz. Veja que:
+
+**Matrizes**: Os elementos são organizados em duas dimensões (linhas e colunas).
+
+**Array**: Os elementos podem ser armazenados em mais de duas dimensões.
+
+- No R-base, um array pode ser criando com a função .green[array()].
+- Os arrays podem armazenar apenas um tipo de dados.
+]
+]
+
+--
+
+.pull-right-4[
+
+.blockquote[
+.font80[
+.center[.blue[array(]**data** = NA, **dim** = length(data), **dimnames** = NULL.blue[)]]
+&lt;br&gt;
+
+**data** = um vetor (incluindo uma lista) que fornecerá dados para preencher a matriz.
+
+**dim** = um vetor de inteiros indicando as dimensões máximas do array.
+
+**dimnames** = Insere rótulos para as dimensões do array. Deve ser uma lista com nomes para as dimensões. Padrão é NULL.
+]
+]
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Arrays - .black[Função array()]
+
+.pull-top[
+.pull-left-4[
+.font90[
+
+``` r
+# Cria um array sem elementos
+(ar1 &lt;- array(dim = c(3, 2, 2)))
+
+# 3: número de linhas
+# 2: número de colunas
+# 2: número de matrizes
+```
+
+]
+]
+]
+
+.pull-right-4[
+
+```
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]   NA   NA
+## [2,]   NA   NA
+## [3,]   NA   NA
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]   NA   NA
+## [2,]   NA   NA
+## [3,]   NA   NA
+```
+]
+
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Arrays - .black[Função array()]
+
+.pull-top[
+.pull-left-4[
+.font90[
+
+``` r
+# Cria um array com elementos
+(ar2 &lt;- array(data = 1:12, dim = c(3, 2, 2)))
+```
+&lt;br&gt;
+
+- Veja que os valores do vetor .blue[1:12] foram distribuídos nas 2 matrizes na ordem dos elementos e por colunas das matrizes.
+
+
+]
+]
+]
+
+.pull-right-4[
+
+```
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]    7   10
+## [2,]    8   11
+## [3,]    9   12
+```
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Arrays - .black[Função array()]
+
+.pull-top[
+.pull-left-4[
+.font90[
+
+``` r
+# Cria um array a partir de vetores de 
+# tamanhos diferentes
+vect1 &lt;- c(3, 6, 1)
+vect2 &lt;- c(15, 18, 13, 11, 17, 16)
+
+(ar3 &lt;- array(c(vect1, vect2), dim = c(3, 3, 2)))
+```
+&lt;br&gt;
+
+]
+]
+]
+
+.pull-right-4[
+
+```
+## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    3   15   11
+## [2,]    6   18   17
+## [3,]    1   13   16
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    3   15   11
+## [2,]    6   18   17
+## [3,]    1   13   16
+```
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Arrays - .black[Função array()] - Nomeando dimensões
+
+.pull-top[
+.pull-left-4[
+.font90[
+
+``` r
+# Nomeando linhas, colunas e matrizes do array
+array(c(vect1, vect2),
+      dim = c(3, 3, 2),
+      dimnames = list(c("L1", "L2", "L3"),
+                      c("C1", "C2", "C3"),
+                      c("M1", "M2")))
+```
+&lt;br&gt;
+
+- Use o argumento **dimnames** para nomear as linhas, colunas e
+matrizes do array.
+
+]
+]
+]
+
+.pull-right-4[
+
+```
+## , , M1
+## 
+##    C1 C2 C3
+## L1  3 15 11
+## L2  6 18 17
+## L3  1 13 16
+## 
+## , , M2
+## 
+##    C1 C2 C3
+## L1  3 15 11
+## L2  6 18 17
+## L3  1 13 16
+```
+]
+
+
+---
+name: df
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Data Frames - .black[Propriedades]
+
+.pull-left-4[
+.font90[
+- São caracterizados por possuírem duas dimensões (linhas e colunas) - bidimensional.
+-  Pode-se reunir vetores de diferentes classes, com a condição de possuírem igual comprimento.
+- O R-base possui a função .green[data.frame()].
+- A edição de um data.frame pode ser feita usando a função .green[edit()].
+- Em geral, dados importados (.csv e .txt) são armazenados como data.frame.
+]
+]
+
+--
+
+.pull-right-4[
+**Atividade para** <span>&lt;i class="fas  fa-home faa-horizontal animated "&gt;&lt;/i&gt;</span>
+
+Use o comando x &lt;- edit(data.frame()) e crie a tabela a seguir:
+
+
+```
+##     especie diametro altura
+## 1     Acapu     23.0    8.5
+## 2 Araucaria     27.0    9.2
+## 3     Mogno     33.6   10.5
+## 4     Cedro     42.6   13.4
+## 5       Ipe     52.1   15.8
+```
+
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Data Frames - .black[Função data.frame()]
+
+.pull-left-4[
+.font90[
+**Cria um data frame a partir de vetores existentes**
+
+``` r
+especie &lt;- c("Acapu", "Araucaria", "Cedro", "Tauari")
+diametro &lt;- c(23.0, 27.0, 33.6, 52.6)
+altura &lt;- c(8.4, 8.7, 9.1, 18.2)
+cortar &lt;- c("Não", "Não", "Não", "Sim")
+
+(invFlor1 &lt;- 
+  data.frame(especie, diametro, altura, cortar,
+             stringsAsFactors = TRUE))
+```
+
+
+```
+##     especie diametro altura cortar
+## 1     Acapu     23.0    8.4    Não
+## 2 Araucaria     27.0    8.7    Não
+## 3     Cedro     33.6    9.1    Não
+## 4    Tauari     52.6   18.2    Sim
+```
+]
+]
+
+--
+
+.pull-right-4[
+.font90[
+**Cria um data frame com apenas um comando**
+
+``` r
+(invFlor2 &lt;- 
+  data.frame(
+    especie=c("Acapu", "Araucaria", "Cedro", "Tauari"),
+    diametro=c(23.0, 27.0, 33.6, 52.6),
+    altura=c(8.4, 8.7, 9.1, 18.2),
+    cortar=c("Não", "Não", "Não", "Sim"),
+    stringsAsFactors=FALSE))
+```
+
+
+```
+##     especie diametro altura cortar
+## 1     Acapu     23.0    8.4    Não
+## 2 Araucaria     27.0    8.7    Não
+## 3     Cedro     33.6    9.1    Não
+## 4    Tauari     52.6   18.2    Sim
+```
+**Explore as funções dim() e str().**
+]
+]
+
+---
+name: list
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Listas - .black[Propriedades]
+
+
+.font90[
+- Pode reunir diferentes estruturas de dados (vetores, matrizes, data frames e inclusive outras listas).
+- O R-base possui a função .green[list()].
+- Se os objetos já existem pode-se simplesmente adicioná-los à
+função list().
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Listas - .black[Função list()]
+
+.pull-left-4[
+**Uma lista a partir de objetos já existentes**
+
+``` r
+especie &lt;- c("Acapu", "Mogno", "Cedro", "Ipe")
+diametro &lt;- c(23.0, 27.0, 33.6, 52.6)
+altura &lt;- c(8.4, 8.7, 9.1, 18.2)
+
+# Sem atribuir nomes aos objetos da lista
+(list1 &lt;- list(especie, diametro, altura))
+
+# Atribuindo nomes aos objetos da lista
+(list2 &lt;- list(Esp = especie, 
+               DAP = diametro, 
+               H = altura))
+```
+**Nomear os componentes da lista facilita a identificação e a indexação.**
+
+]
+
+--
+
+.pull-right-4[
+
+```
+## [[1]]
+## [1] "Acapu" "Mogno" "Cedro" "Ipe"  
+## 
+## [[2]]
+## [1] 23.0 27.0 33.6 52.6
+## 
+## [[3]]
+## [1]  8.4  8.7  9.1 18.2
+```
+
+```
+## $Esp
+## [1] "Acapu" "Mogno" "Cedro" "Ipe"  
+## 
+## $DAP
+## [1] 23.0 27.0 33.6 52.6
+## 
+## $H
+## [1]  8.4  8.7  9.1 18.2
+```
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Listas - .black[Função list()]
+
+.pull-left-4[
+.font90[
+**Uma lista com diferentes estruturas de dados**
+
+``` r
+diametro &lt;- c(23.0, 27.0, 33.6, 52.6)
+
+mat &lt;- 
+   matrix(data=1:6, nrow=2, 
+          ncol=3, byrow=TRUE,
+          dimnames=list(c("L1", "L2"),
+                        c("C1", "C2", "C3")))
+
+invFlor &lt;- 
+  data.frame(
+    especie=c("Acapu", "Mogno", "Cedro", "Ipe"),
+    cortar=c("Não", "Não", "Não", "Sim"),
+    stringsAsFactors=FALSE)
+
+# Criando lista nomeada
+(list3 &lt;- list(Vetor = diametro, 
+               Matriz = mat,
+               DataFrame = invFlor))
+
+```
+]
+]
+
+--
+
+.pull-right-4[
+
+```
+## $Vetor
+## [1] 23.0 27.0 33.6 52.6
+## 
+## $Matriz
+##    C1 C2 C3
+## L1  1  2  3
+## L2  4  5  6
+## 
+## $DataFrame
+##   especie cortar
+## 1   Acapu    Não
+## 2   Mogno    Não
+## 3   Cedro    Não
+## 4     Ipe    Sim
+```
+**Explore as funções length() e names()**.
+
+]
+
+---
+
+## Estrutura de dados na linguagem R
+&lt;br&gt;
+
+### Listas - .black[Coagindo lista para data frame]
+
+.pull-left-4[
+.font90[
+- Uma lista pode ser transformada em um data frame usando
+a função .green[as.data.frame()]. 
+- Mas, para isso a lista a ser transformada deve possuir vetores de igual comprimento.
+]
+]
+
+--
+
+.pull-right-4[
+**Lista para Data Frame**
+
+``` r
+# Criando lista nomeada
+list4 &lt;- list(
+  Esp = c("Acapu", "Mogno", "Cedro", "Ipe"),
+  DAP = c(23.0, 27.0, 33.6, 52.6), 
+  H = c(8.4, 8.7, 9.1, 18.2))
+
+as.data.frame(list4)
+```
+
+
+```
+##     Esp  DAP    H
+## 1 Acapu 23.0  8.4
+## 2 Mogno 27.0  8.7
+## 3 Cedro 33.6  9.1
+## 4   Ipe 52.6 18.2
+```
+]
+
+
+&lt;!--Slide XX --&gt;
+---
+layout: false
+name: etim
+class: inverse, middle, center
+background-image: url(fig/class0/sec.png)
+background-size: cover
+
+## .font200[Obrigado!]
+
+&lt;img src="fig/slide-title/LMFTCA.png" width="20%" style="display: block; margin: auto;" /&gt;
+
+👨🏻‍👩🏻‍👦🏻‍👦🏻 [@lmftca_ufpa](https://www.instagram.com/lmftca_ufpa/)
+
+🌎 [https://www.lmftca.com.br/](https://www.lmftca.com.br/)
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "highlightLanguage": ["r", "css", "yaml"],
+  "ratio": "16:9",
+  "navigation": {
+    "scroll": false
+  }
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
