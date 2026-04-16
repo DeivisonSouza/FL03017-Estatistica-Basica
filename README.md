@@ -65,6 +65,7 @@ Básica** (FL03017-EB) estão detalhados a seguir.
 | Slides/06-R-Instalacao.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/06-R-Instalacao.html> |
 | Slides/07-Linguagem-R-Estrutura-Dados.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/07-Linguagem-R-Estrutura-Dados.html> |
 | Slides/08-Linguagem-R-Indexacao.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/08-Linguagem-R-Indexacao.html> |
+| Slides/09-Linguagem-R-AED-Iris.html | <https://deivisonsouza.github.io/FL03017-Estatistica-Basica/Slides/09-Linguagem-R-AED-Iris.html> |
 
 # Materias de apoio
 
